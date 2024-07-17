@@ -1,5 +1,4 @@
 import { createContext, useState , useEffect} from "react";
-
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({children}) => {
@@ -16,8 +15,23 @@ export const FeedbackProvider = ({children}) => {
     },[])
 
     const fetchFeedback = async () => {
-        const response = await fetch(`/feedback`)
-        const data = await response.json()
+        const data =  [
+            {
+                id: 1,
+                rating: 10,
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.',
+              },
+              {
+                id: 2,
+                rating: 9,
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.',
+              },
+              {
+                id: 3,
+                rating: 8,
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.',
+              },
+        ]        
          setFeedback(data)
          setIsLoading(false)
     }
